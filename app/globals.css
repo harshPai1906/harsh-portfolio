@@ -17,6 +17,8 @@ html {
   background-color: #F2EFE7;
   color: #2F2E2F;
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -24,6 +26,9 @@ body {
   background-color: var(--background);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
 }
 
 /* Custom Scrollbar */

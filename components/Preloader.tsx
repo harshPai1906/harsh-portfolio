@@ -72,7 +72,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       {!isFinishing ? (
         <motion.div
           key="preloader"
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1a1a1a] overflow-hidden"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1a1a1a] overflow-hidden w-screen max-w-[100vw]"
           exit={{
             y: '-100%',
             transition: {
@@ -94,8 +94,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           <motion.div
             className="absolute rounded-full"
             style={{
-              width: '500px',
-              height: '500px',
+              width: 'min(80vw, 500px)',
+              height: 'min(80vw, 500px)',
               background:
                 'radial-gradient(circle, rgba(169, 44, 31, 0.08) 0%, transparent 70%)',
             }}
@@ -119,8 +119,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           />
 
           {/* Counter in corner */}
-          <div className="absolute top-8 right-8 flex items-center gap-3">
-            <span className="text-[#A92C1F]/40 text-xs font-mono tracking-widest">
+          <div className="absolute top-4 right-4 sm:top-8 sm:right-8 flex items-center gap-3">
+            <span className="text-[#A92C1F]/40 text-[10px] sm:text-xs font-mono tracking-widest">
               {String(currentWordIndex + 1).padStart(2, '0')} / {String(words.length).padStart(2, '0')}
             </span>
           </div>
@@ -136,11 +136,11 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           </motion.div>
 
           {/* Main word animation */}
-          <div className="relative z-10 flex items-center justify-center min-h-[120px]">
+          <div className="relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] w-full px-4">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentWordIndex}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F2EFE7] block"
+                className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F2EFE7] block text-center"
                 style={{
                   fontFamily: "'Inter', system-ui, sans-serif",
                 }}
@@ -181,7 +181,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           </div>
 
           {/* Bottom progress bar */}
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 sm:w-64">
+          <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 w-40 sm:w-64">
             <div className="relative h-[1px] w-full bg-[#A92C1F]/10 overflow-hidden rounded-full">
               <motion.div
                 className="absolute left-0 top-0 h-full bg-gradient-to-r from-[#A92C1F] to-[#DBCDC9]"
@@ -200,14 +200,14 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           </div>
 
           {/* Decorative corner elements */}
-          <div className="absolute top-8 left-8 w-6 h-6 border-l border-t border-[#A92C1F]/20" />
-          <div className="absolute bottom-8 right-8 w-6 h-6 border-r border-b border-[#A92C1F]/20" />
+          <div className="absolute top-4 left-4 sm:top-8 sm:left-8 w-5 h-5 sm:w-6 sm:h-6 border-l border-t border-[#A92C1F]/20" />
+          <div className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 w-5 h-5 sm:w-6 sm:h-6 border-r border-b border-[#A92C1F]/20" />
         </motion.div>
       ) : (
         /* Curtain reveal - split panels sliding away */
         <motion.div
           key="curtain"
-          className="fixed inset-0 z-[9999] bg-[#1a1a1a]"
+          className="fixed inset-0 z-[9999] bg-[#1a1a1a] overflow-hidden max-w-[100vw]"
           initial={{ y: 0 }}
           animate={{ y: '-100%' }}
           transition={{
