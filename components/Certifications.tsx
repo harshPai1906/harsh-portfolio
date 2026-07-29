@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Award, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { ConstellationCanvas } from '@/components/ConstellationCanvas';
 
 interface Certification {
   id: string;
@@ -53,11 +54,15 @@ const CERTIFICATIONS: Certification[] = [
 
 export const Certifications: React.FC = () => {
   return (
-    <section id="certifications" className="relative z-20 bg-transparent px-6 py-28 md:px-16 border-t border-[#A92C1F]/15">
-      {/* Subtle background glow */}
-      <div className="pointer-events-none absolute right-1/4 top-10 h-[450px] w-[450px] rounded-full bg-[#DBCDC9]/20 blur-[130px]" />
+    <section id="certifications" className="relative z-20 bg-transparent px-6 py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
+      {/* Background Ambient Glows & Constellation Laser Network */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
+        <ConstellationCanvas />
+        <div className="absolute left-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-[#DBCDC9]/25 blur-[150px]" />
+        <div className="absolute right-1/4 bottom-1/4 h-[450px] w-[450px] rounded-full bg-[#A92C1F]/15 blur-[140px]" />
+      </div>
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
         <div className="mb-16 text-center max-w-2xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-4 py-1.5 text-xs font-semibold text-[#A92C1F] shadow-xs">
@@ -81,8 +86,12 @@ export const Certifications: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between"
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-2 border-[#A92C1F]/20 hover:border-[#A92C1F] hover:shadow-[0_20px_40px_rgba(169,44,31,0.18)] transition-all duration-300 relative overflow-hidden group"
             >
+              {/* Glowing Top Ribbon */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#A92C1F] via-[#DBCDC9] to-[#8A2318] opacity-0 group-hover:opacity-100 transition-opacity" />
+
               <div>
                 {/* Header Badge & Date */}
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
@@ -96,10 +105,11 @@ export const Certifications: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-subheading text-2xl font-extrabold text-[#2F2E2F] mb-2 leading-snug">
+                <h3 className="font-subheading text-2xl font-extrabold text-[#2F2E2F] mb-2 leading-snug group-hover:text-[#A92C1F] transition-colors">
                   {cert.title}
                 </h3>
-                <div className="text-xs font-mono text-[#A92C1F] font-bold mb-5">
+                <div className="text-xs font-mono text-[#A92C1F] font-bold mb-5 flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-[#A92C1F]" />
                   COMPLETED: {cert.date.toUpperCase()}
                 </div>
 

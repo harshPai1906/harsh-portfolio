@@ -234,8 +234,6 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
                         }
                       : {}
                   }
-                  onHoverStart={() => isFront && setShowInfo(true)}
-                  onHoverEnd={() => setShowInfo(false)}
                 >
                   <img
                     src={src}
