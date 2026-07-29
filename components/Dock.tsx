@@ -69,8 +69,8 @@ export const Dock: React.FC<DockProps> = ({
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center my-6">
-      <div className="relative inline-flex items-center gap-2 sm:gap-3 rounded-full border-2 border-[#A92C1F]/25 bg-[#F2EFE7]/90 px-4 py-2.5 backdrop-blur-2xl shadow-2xl">
+    <div className="flex flex-col items-center justify-center my-4 sm:my-6 max-w-full">
+      <div className="relative inline-flex items-center gap-1.5 sm:gap-3 rounded-full border-2 border-[#A92C1F]/25 bg-[#F2EFE7]/90 px-2.5 sm:px-4 py-2 sm:py-2.5 backdrop-blur-2xl shadow-2xl max-w-full">
         {dockItems.map((item, idx) => {
           const isHovered = hoveredIndex === idx;
 

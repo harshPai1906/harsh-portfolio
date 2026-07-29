@@ -87,23 +87,23 @@ const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="relative z-20 bg-[#F2EFE7] px-6 py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
+    <section id="skills" className="relative z-20 bg-[#F2EFE7] px-4 sm:px-6 py-16 sm:py-24 md:py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
       {/* Ambient Background Glows */}
       <div className="pointer-events-none absolute left-1/2 top-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#DBCDC9]/20 blur-[150px]" />
 
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 text-center max-w-3xl mx-auto space-y-4">
-          <h2 className="font-header text-4xl font-black tracking-tight text-[#2F2E2F] sm:text-6xl">
+        <div className="mb-12 sm:mb-16 text-center max-w-3xl mx-auto space-y-4">
+          <h2 className="font-header text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl">
             SKILLS & <span className="text-gradient-accent">EXPERTISE</span>
           </h2>
-          <p className="text-[#5A5556] text-base font-medium leading-relaxed">
+          <p className="text-[#5A5556] text-sm sm:text-base font-medium leading-relaxed">
             A clean, unified overview of technical competencies across PostgreSQL databases, Power BI analytics, embedded microcontrollers, VLSI verification, and UI/UX design.
           </p>
         </div>
 
         {/* Unified All-in-One Clean Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {SKILL_CATEGORIES.map((cat, idx) => {
             const Icon = cat.icon;
             return (
@@ -113,33 +113,33 @@ export const Skills: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-card glass-card-hover rounded-3xl p-7 flex flex-col justify-between border border-[#A92C1F]/20 shadow-xl relative overflow-hidden group"
+                className="glass-card glass-card-hover rounded-3xl p-5 sm:p-7 flex flex-col justify-between border border-[#A92C1F]/20 shadow-xl relative overflow-hidden group"
               >
                 {/* Top Accent Gradient Bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A92C1F] via-[#B45348] to-[#DBCDC9] opacity-70 group-hover:opacity-100 transition-opacity" />
 
                 <div>
                   {/* Category Header */}
-                  <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-[#A92C1F]/15">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#A92C1F]/12 text-[#A92C1F] group-hover:bg-[#A92C1F] group-hover:text-white transition-all shadow-xs">
-                      <Icon className="h-5.5 w-5.5" />
+                  <div className="flex items-center gap-3.5 mb-5 pb-4 border-b border-[#A92C1F]/15">
+                    <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-[#A92C1F]/12 text-[#A92C1F] group-hover:bg-[#A92C1F] group-hover:text-white transition-all shadow-xs shrink-0">
+                      <Icon className="h-5 w-5 sm:h-5.5 sm:w-5.5" />
                     </div>
                     <div>
-                      <h3 className="font-subheading text-lg font-extrabold text-[#2F2E2F] leading-snug">
+                      <h3 className="font-subheading text-base sm:text-lg font-extrabold text-[#2F2E2F] leading-snug">
                         {cat.title}
                       </h3>
-                      <p className="text-xs text-[#A92C1F] font-semibold">
+                      <p className="text-[11px] sm:text-xs text-[#A92C1F] font-semibold">
                         {cat.subtitle}
                       </p>
                     </div>
                   </div>
 
                   {/* Clean Skill Pills List */}
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap gap-2">
                     {cat.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="group/pill inline-flex items-center gap-2 rounded-xl bg-[#F2EFE7] border border-[#A92C1F]/25 px-3.5 py-2 text-xs font-medium text-[#2F2E2F] shadow-xs hover:border-[#A92C1F] hover:bg-[#A92C1F] hover:text-white transition-all"
+                        className="group/pill inline-flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 rounded-xl bg-[#F2EFE7] border border-[#A92C1F]/25 px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-medium text-[#2F2E2F] shadow-xs hover:border-[#A92C1F] hover:bg-[#A92C1F] hover:text-white transition-all max-w-full"
                       >
                         <CheckCircle2 className="h-3.5 w-3.5 text-[#A92C1F] group-hover/pill:text-white shrink-0 transition-colors" />
                         <span className="font-semibold">{skill.name}</span>

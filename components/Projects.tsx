@@ -94,25 +94,25 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="work" className="relative z-20 bg-transparent px-6 py-28 md:px-16 border-t border-[#A92C1F]/15">
+    <section id="work" className="relative z-20 bg-transparent px-4 sm:px-6 py-16 sm:py-24 md:py-28 md:px-16 border-t border-[#A92C1F]/15">
       {/* Background Subtle Gradient Blobs */}
       <div className="pointer-events-none absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-[#DBCDC9]/20 blur-[140px]" />
       <div className="pointer-events-none absolute right-1/4 bottom-10 h-[500px] w-[500px] rounded-full bg-[#E8E3DA]/60 blur-[140px]" />
 
       <div className="mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div className="mb-12 sm:mb-16 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-4 py-1.5 text-xs font-semibold text-[#A92C1F] shadow-xs">
               <FolderGit2 className="h-3.5 w-3.5" />
               Featured Embedded & Hardware Engineering Projects
             </div>
-            <h2 className="font-header mt-4 text-4xl font-black tracking-tight text-[#2F2E2F] sm:text-6xl">
+            <h2 className="font-header mt-3 sm:mt-4 text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl">
               FEATURED <span className="text-gradient-accent">WORKS</span>
             </h2>
           </div>
 
-          <div className="text-sm font-mono text-[#A92C1F] font-bold">
+          <div className="text-xs sm:text-sm font-mono text-[#A92C1F] font-bold">
             SHOWCASING 03 HARDWARE PROJECTS
           </div>
         </div>

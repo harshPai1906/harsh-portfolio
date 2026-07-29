@@ -54,7 +54,7 @@ const CERTIFICATIONS: Certification[] = [
 
 export const Certifications: React.FC = () => {
   return (
-    <section id="certifications" className="relative z-20 bg-transparent px-6 py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
+    <section id="certifications" className="relative z-20 bg-transparent px-4 sm:px-6 py-16 sm:py-24 md:py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
       {/* Background Ambient Glows & Constellation Laser Network */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
         <ConstellationCanvas />
@@ -64,21 +64,21 @@ export const Certifications: React.FC = () => {
 
       <div className="mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="mb-16 text-center max-w-2xl mx-auto space-y-4">
+        <div className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-4 py-1.5 text-xs font-semibold text-[#A92C1F] shadow-xs">
             <Award className="h-3.5 w-3.5" />
             Professional Certifications & Accreditations
           </div>
-          <h2 className="font-header text-4xl font-black tracking-tight text-[#2F2E2F] sm:text-6xl">
+          <h2 className="font-header text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl">
             CERTIFICATIONS & <span className="text-gradient-accent">CREDENTIALS</span>
           </h2>
-          <p className="text-[#5A5556] text-base font-medium">
+          <p className="text-[#5A5556] text-sm sm:text-base font-medium">
             Official industry certifications in VLSI hardware verification and Oracle Cloud Data Science.
           </p>
         </div>
 
         {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {CERTIFICATIONS.map((cert, index) => (
             <motion.div
               key={cert.id}
@@ -87,7 +87,7 @@ export const Certifications: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               whileHover={{ y: -6, scale: 1.01 }}
-              className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-2 border-[#A92C1F]/20 hover:border-[#A92C1F] hover:shadow-[0_20px_40px_rgba(169,44,31,0.18)] transition-all duration-300 relative overflow-hidden group"
+              className="glass-card glass-card-hover rounded-3xl p-5 sm:p-8 flex flex-col justify-between border-2 border-[#A92C1F]/20 hover:border-[#A92C1F] hover:shadow-[0_20px_40px_rgba(169,44,31,0.18)] transition-all duration-300 relative overflow-hidden group"
             >
               {/* Glowing Top Ribbon */}
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#A92C1F] via-[#DBCDC9] to-[#8A2318] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -105,7 +105,7 @@ export const Certifications: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-subheading text-2xl font-extrabold text-[#2F2E2F] mb-2 leading-snug group-hover:text-[#A92C1F] transition-colors">
+                <h3 className="font-subheading text-xl sm:text-2xl font-extrabold text-[#2F2E2F] mb-2 leading-snug group-hover:text-[#A92C1F] transition-colors">
                   {cert.title}
                 </h3>
                 <div className="text-xs font-mono text-[#A92C1F] font-bold mb-5 flex items-center gap-1.5">

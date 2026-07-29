@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.96 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-auto mx-auto mt-3 max-w-sm rounded-3xl border border-[#A92C1F]/25 bg-[#F2EFE7]/95 p-6 backdrop-blur-2xl md:hidden shadow-2xl"
+            className="pointer-events-auto mx-auto mt-3 w-[calc(100vw-2rem)] max-w-sm rounded-3xl border border-[#A92C1F]/25 bg-[#F2EFE7]/95 p-5 sm:p-6 backdrop-blur-2xl md:hidden shadow-2xl"
           >
             <div className="flex flex-col gap-3 font-mono text-xs tracking-wider text-[#2F2E2F]">
               {navLinks.map((link, idx) => (

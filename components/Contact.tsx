@@ -53,20 +53,54 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="relative z-20 bg-transparent px-6 py-16 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
+    <section id="contact" className="relative z-20 bg-transparent px-4 sm:px-6 py-16 sm:py-24 md:py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
       {/* High-Impact Attention Glow Spotlight */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-[#A92C1F]/20 via-[#DBCDC9]/35 to-transparent blur-[150px] animate-pulse" />
 
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 items-center">
           
-          {/* Left Column: Direct Email Message Form */}
+          {/* Header & Description Column (Order 1 on mobile, Order 2 on desktop) */}
+          <div className="space-y-4 text-left order-1 lg:order-2">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.05 }}
+              className="font-header text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl"
+            >
+              GET IN <span className="text-gradient-accent">TOUCH</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-base sm:text-lg text-[#5A5556] font-medium leading-relaxed max-w-lg"
+            >
+              Seeking opportunities in Data Analytics, where I can turn data into meaningful insights and support data-driven decisions. Feel free to connect via email, phone, or LinkedIn.
+            </motion.p>
+
+            {/* Interactive Social Touchpoint Dock */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="pt-2 flex justify-start sm:justify-start"
+            >
+              <Dock email={email} phone={phone} linkedinUrl={linkedinUrl} />
+            </motion.div>
+          </div>
+
+          {/* Direct Email Message Form (Order 2 on mobile, Order 1 on desktop) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="glass-card rounded-2xl p-6 md:p-8 border-2 border-[#A92C1F]/40 shadow-[0_10px_40px_rgba(169,44,31,0.14)] relative overflow-hidden"
+            className="glass-card rounded-2xl p-5 sm:p-8 border-2 border-[#A92C1F]/40 shadow-[0_10px_40px_rgba(169,44,31,0.14)] relative overflow-hidden order-2 lg:order-1"
           >
             {/* Top Glowing Accent Ribbon */}
             <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#A92C1F] via-[#0A66C2] to-[#8A2318]" />
@@ -109,7 +143,7 @@ export const Contact: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex items-center justify-between pb-1.5 border-b border-[#A92C1F]/15">
-                  <span className="font-header text-base sm:text-lg font-black text-[#2F2E2F]">
+                  <span className="font-header text-sm sm:text-lg font-black text-[#2F2E2F]">
                     SEND DIRECT MESSAGE
                   </span>
                   <MessageSquare className="h-4 w-4 text-[#A92C1F]" />
@@ -176,41 +210,6 @@ export const Contact: React.FC = () => {
               </form>
             )}
           </motion.div>
-
-          {/* Right Column: Heading, Description & Social Dock */}
-          <div className="space-y-4 text-left">
-
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
-              className="font-header text-4xl font-black tracking-tight text-[#2F2E2F] sm:text-6xl"
-            >
-              GET IN <span className="text-gradient-accent">TOUCH</span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-lg text-[#5A5556] font-medium leading-relaxed max-w-lg"
-            >
-              Seeking opportunities in Data Analytics, where I can turn data into meaningful insights and support data-driven decisions. Feel free to connect via email, phone, or LinkedIn.
-            </motion.p>
-
-            {/* Interactive Social Touchpoint Dock */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="pt-4 flex justify-start"
-            >
-              <Dock email={email} phone={phone} linkedinUrl={linkedinUrl} />
-            </motion.div>
-          </div>
 
         </div>
       </div>

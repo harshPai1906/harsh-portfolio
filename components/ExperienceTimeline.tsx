@@ -150,39 +150,39 @@ export const ExperienceTimeline: React.FC = () => {
   );
 
   return (
-    <section id="experience" ref={containerRef} className="relative z-20 bg-transparent px-6 py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
+    <section id="experience" ref={containerRef} className="relative z-20 bg-transparent px-4 sm:px-6 py-16 sm:py-24 md:py-28 md:px-16 border-t border-[#A92C1F]/15 overflow-hidden">
       {/* Background Ambient Glows */}
       <div className="pointer-events-none absolute left-1/2 top-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#DBCDC9]/25 blur-[150px]" />
       <div className="pointer-events-none absolute right-10 bottom-20 h-[400px] w-[400px] rounded-full bg-[#A92C1F]/10 blur-[130px]" />
 
       <div className="mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="mb-20 text-center max-w-3xl mx-auto space-y-4">
+        <div className="mb-12 sm:mb-20 text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-4 py-1.5 text-xs font-semibold text-[#A92C1F] shadow-xs">
             <Sparkles className="h-3.5 w-3.5 animate-spin-slow text-[#A92C1F]" />
             Career & Academic Journey
           </div>
-          <h2 className="font-header text-4xl font-black tracking-tight text-[#2F2E2F] sm:text-6xl">
+          <h2 className="font-header text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl">
             EXPERIENCE & <span className="text-gradient-accent">TIMELINE</span>
           </h2>
-          <p className="text-[#5A5556] text-base font-medium leading-relaxed">
+          <p className="text-[#5A5556] text-sm sm:text-base font-medium leading-relaxed">
             A chronological timeline of data analytics internships, campus leadership roles, and academic milestones at VIT Vellore.
           </p>
         </div>
 
         {/* Timeline Container */}
         <div className="relative">
-          {/* Central Vertical Line (Desktop: center, Mobile: left-6) */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-[#A92C1F]/20" />
+          {/* Central Vertical Line (Desktop: center, Mobile: left-4) */}
+          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-[#A92C1F]/20" />
 
           {/* Animated Interactive Glowing Red Fill Line */}
           <motion.div
             style={{ scaleY, transformOrigin: 'top' }}
-            className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1.5 -translate-x-1/2 bg-gradient-to-b from-[#A92C1F] via-[#DBCDC9] to-[#8A2318] rounded-full z-10 shadow-[0_0_20px_#A92C1F]"
+            className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-1.5 -translate-x-1/2 bg-gradient-to-b from-[#A92C1F] via-[#DBCDC9] to-[#8A2318] rounded-full z-10 shadow-[0_0_20px_#A92C1F]"
           />
 
           {/* Timeline Nodes Grid */}
-          <div className="space-y-12 md:space-y-16">
+          <div className="space-y-10 md:space-y-16">
             {TIMELINE_ITEMS.map((item, index) => {
               const Icon = getItemIcon(item.type);
               const isLeft = index % 2 === 0;
@@ -197,7 +197,7 @@ export const ExperienceTimeline: React.FC = () => {
                   className="relative flex flex-col md:grid md:grid-cols-2 items-center"
                 >
                   {/* Left Column on Desktop */}
-                  <div className={`w-full ${isLeft ? 'md:pr-12 pl-12 md:pl-0' : 'hidden md:block'}`}>
+                  <div className={`w-full ${isLeft ? 'pl-8 pr-1 sm:pl-12 md:pl-0 md:pr-12' : 'hidden md:block'}`}>
                     {isLeft && renderCardContent(item)}
                   </div>
 
@@ -205,15 +205,15 @@ export const ExperienceTimeline: React.FC = () => {
                   <motion.div
                     whileHover={{ scale: 1.3, rotate: 360 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                    className="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center h-11 w-11 rounded-full bg-[#F2EFE7] border-2 border-[#A92C1F] z-20 shadow-[0_0_20px_rgba(169,44,31,0.4)] cursor-pointer group"
+                    className="absolute left-4 sm:left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center h-9 w-9 sm:h-11 sm:w-11 rounded-full bg-[#F2EFE7] border-2 border-[#A92C1F] z-20 shadow-[0_0_20px_rgba(169,44,31,0.4)] cursor-pointer group"
                   >
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#A92C1F] text-white shadow-inner group-hover:bg-[#8A2318] transition-colors">
-                      <Icon className="h-4 w-4" />
+                    <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#A92C1F] text-white shadow-inner group-hover:bg-[#8A2318] transition-colors">
+                      <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </div>
                   </motion.div>
 
                   {/* Right Column on Desktop */}
-                  <div className={`w-full ${!isLeft ? 'md:pl-12 pl-12 md:pr-0' : 'hidden md:block'}`}>
+                  <div className={`w-full ${!isLeft ? 'pl-8 pr-1 sm:pl-12 md:pr-0 md:pl-12' : 'hidden md:block'}`}>
                     {!isLeft && renderCardContent(item)}
                   </div>
                 </motion.div>

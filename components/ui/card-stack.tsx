@@ -159,7 +159,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
         {/* Navigation Buttons */}
         <motion.button
           onClick={moveToStart}
-          className={`absolute -left-4 sm:-left-8 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
+          className={`absolute -left-2 sm:-left-8 top-1/2 -translate-y-1/2 p-2.5 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
           whileHover={{ scale: 1.1, x: -4 }}
           whileTap={{ scale: 0.9 }}
           title="Previous Card"
@@ -169,7 +169,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
 
         <motion.button
           onClick={moveToEnd}
-          className={`absolute -right-4 sm:-right-8 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
+          className={`absolute -right-2 sm:-right-8 top-1/2 -translate-y-1/2 p-2.5 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
           whileHover={{ scale: 1.1, x: 4 }}
           whileTap={{ scale: 0.9 }}
           title="Next Card"
@@ -244,13 +244,13 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
 
                   {/* Top Badges */}
                   {category && (
-                    <div className="absolute top-4 left-4 rounded-full border border-white/30 bg-[#2F2E2F]/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md shadow-md z-20">
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 rounded-full border border-white/30 bg-[#2F2E2F]/80 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-white backdrop-blur-md shadow-md z-20 max-w-[55%] truncate">
                       {category}
                     </div>
                   )}
 
                   {metrics && (
-                    <div className="absolute top-4 right-4 rounded-full border border-[#A92C1F]/40 bg-[#A92C1F] px-3 py-1 text-xs font-mono font-bold text-white shadow-md z-20">
+                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 rounded-full border border-[#A92C1F]/40 bg-[#A92C1F] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono font-bold text-white shadow-md z-20 max-w-[42%] truncate">
                       {metrics}
                     </div>
                   )}

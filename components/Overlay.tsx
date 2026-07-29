@@ -12,12 +12,12 @@ export const Overlay: React.FC<OverlayProps> = () => {
   return (
     <div className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-between">
       {/* Editorial Hero Layout */}
-      <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-10 md:p-14 overflow-hidden bg-[#F2EFE7]">
+      <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-8 md:p-14 overflow-hidden bg-[#F2EFE7]">
         {/* Top Header Row with Top Padding to clear Navbar */}
-        <div className="relative z-20 flex items-start justify-between w-full pt-20 sm:pt-24 md:pt-20">
+        <div className="relative z-20 flex items-start justify-between w-full pt-16 sm:pt-22 md:pt-20">
           {/* Top Left */}
-          <div className="flex flex-col items-start text-left max-w-xs sm:max-w-sm">
-            <p className="font-header text-[#2F2E2F] font-extrabold text-[11px] sm:text-xs md:text-sm uppercase tracking-tight leading-tight">
+          <div className="flex flex-col items-start text-left max-w-[170px] sm:max-w-xs md:max-w-sm">
+            <p className="font-header text-[#2F2E2F] font-extrabold text-[9px] sm:text-xs md:text-sm uppercase tracking-tight leading-tight">
               &ldquo;DESIGNING SOLUTIONS,<br />
               DEVELOPING EXPERIENCES,<br />
               DELIVERING <span className="text-[#2F2E2F] font-black">IMPACT.&rdquo;</span>
@@ -26,7 +26,7 @@ export const Overlay: React.FC<OverlayProps> = () => {
 
           {/* Top Right */}
           <div className="flex flex-col items-end text-right">
-            <span className="font-header text-[#A92C1F] font-black text-xs sm:text-sm md:text-base tracking-wider uppercase">
+            <span className="font-header text-[#A92C1F] font-black text-[10px] sm:text-sm md:text-base tracking-wider uppercase">
               HARSH PAI
             </span>
           </div>
@@ -47,14 +47,14 @@ export const Overlay: React.FC<OverlayProps> = () => {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}
-              className="absolute h-[520px] w-[520px] sm:h-[680px] sm:w-[680px] rounded-full border-2 border-dashed border-[#A92C1F]/25 opacity-70"
+              className="absolute h-[320px] w-[320px] sm:h-[550px] sm:w-[550px] md:h-[680px] md:w-[680px] rounded-full border-2 border-dashed border-[#A92C1F]/25 opacity-70"
             />
 
             {/* 3. Counter-Rotating Dash Orbit Ring 2 (Inner Ring) */}
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-              className="absolute h-[380px] w-[380px] sm:h-[480px] sm:w-[480px] rounded-full border border-dashed border-[#A92C1F]/35 opacity-80"
+              className="absolute h-[240px] w-[240px] sm:h-[380px] sm:w-[380px] md:h-[480px] md:w-[480px] rounded-full border border-dashed border-[#A92C1F]/35 opacity-80"
             />
 
             {/* 4. Large Pulsing Crimson Glow Mesh (Center Core) */}
@@ -64,15 +64,15 @@ export const Overlay: React.FC<OverlayProps> = () => {
                 opacity: [0.35, 0.65, 0.35],
               }}
               transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-              className="absolute h-[420px] w-[420px] sm:h-[550px] sm:w-[550px] rounded-full bg-gradient-to-tr from-[#A92C1F]/35 via-[#DBCDC9]/40 to-transparent blur-[90px]"
+              className="absolute h-[280px] w-[280px] sm:h-[450px] sm:w-[450px] md:h-[550px] md:w-[550px] rounded-full bg-gradient-to-tr from-[#A92C1F]/35 via-[#DBCDC9]/40 to-transparent blur-[80px]"
             />
 
             {/* 5. Floating Glowing Kinetic Particles */}
             {[
-              { top: '25%', left: '20%', size: 'h-4 w-4', delay: 0 },
-              { top: '35%', right: '22%', size: 'h-3 w-3', delay: 1 },
-              { top: '65%', left: '28%', size: 'h-5 w-5', delay: 2 },
-              { top: '70%', right: '25%', size: 'h-4 w-4', delay: 1.5 },
+              { top: '25%', left: '15%', size: 'h-3 w-3 sm:h-4 sm:w-4', delay: 0 },
+              { top: '35%', right: '18%', size: 'h-2.5 w-2.5 sm:h-3 sm:w-3', delay: 1 },
+              { top: '65%', left: '20%', size: 'h-4 w-4 sm:h-5 sm:w-5', delay: 2 },
+              { top: '70%', right: '20%', size: 'h-3 w-3 sm:h-4 sm:w-4', delay: 1.5 },
             ].map((pt, i) => (
               <motion.div
                 key={i}
@@ -99,20 +99,20 @@ export const Overlay: React.FC<OverlayProps> = () => {
           </h1>
 
           {/* Centered Portrait Cutout */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-end justify-center h-full max-h-[85vh] z-20">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-end justify-center h-full max-h-[52vh] sm:max-h-[70vh] md:max-h-[85vh] z-20">
             <img
               src="/harsh-cutout.png"
               alt="Harsh Gangaram Pai"
-              className="h-full max-h-[80vh] md:max-h-[85vh] object-contain drop-shadow-2xl select-none pointer-events-none"
+              className="h-full max-h-[50vh] sm:max-h-[68vh] md:max-h-[85vh] object-contain drop-shadow-2xl select-none pointer-events-none"
             />
           </div>
         </div>
 
         {/* Bottom Footer Row */}
-        <div className="relative z-20 flex items-end justify-between w-full pb-6 md:pb-8">
+        <div className="relative z-20 flex items-end justify-between w-full pb-3 sm:pb-6 md:pb-8">
           {/* Bottom Left */}
           <div className="flex flex-col items-start text-left">
-            <div className="font-header flex flex-col text-[#A92C1F] font-black text-xs sm:text-sm md:text-base leading-snug">
+            <div className="font-header flex flex-col text-[#A92C1F] font-black text-[9px] sm:text-xs md:text-base leading-snug">
               <span>4TH YEAR</span>
               <span>VIT VELLORE</span>
               <span>ECE</span>
@@ -121,7 +121,7 @@ export const Overlay: React.FC<OverlayProps> = () => {
 
           {/* Bottom Right */}
           <div className="flex flex-col items-end text-right">
-            <div className="font-header flex flex-col text-[#A92C1F] font-black text-xs sm:text-sm md:text-base leading-snug">
+            <div className="font-header flex flex-col text-[#A92C1F] font-black text-[9px] sm:text-xs md:text-base leading-snug">
               <span>DEVELOPER</span>
               <span>DESIGNER</span>
               <span>PROBLEM SOLVER</span>
