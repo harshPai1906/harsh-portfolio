@@ -159,7 +159,8 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
         {/* Navigation Buttons */}
         <motion.button
           onClick={moveToStart}
-          className={`absolute -left-2 sm:-left-8 top-1/2 -translate-y-1/2 p-2.5 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
+          style={{ top: '50%', y: '-50%' }}
+          className={`absolute -left-2 sm:-left-8 p-2.5 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
           whileHover={{ scale: 1.1, x: -4 }}
           whileTap={{ scale: 0.9 }}
           title="Previous Card"
@@ -169,7 +170,8 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
 
         <motion.button
           onClick={moveToEnd}
-          className={`absolute -right-2 sm:-right-8 top-1/2 -translate-y-1/2 p-2.5 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
+          style={{ top: '50%', y: '-50%' }}
+          className={`absolute -right-2 sm:-right-8 p-2.5 sm:p-4 rounded-full ${currentTheme.controlBg} border ${currentTheme.toggleBorder} backdrop-blur-sm transition-colors duration-200 z-30 cursor-pointer shadow-lg`}
           whileHover={{ scale: 1.1, x: 4 }}
           whileTap={{ scale: 0.9 }}
           title="Next Card"
