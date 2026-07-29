@@ -100,7 +100,7 @@ export const Navbar: React.FC = () => {
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="/harsh-resume.pdf"
+              href="https://drive.google.com/file/d/1pR4KMhgkr5pR6QSza6Z4bgsiH6FPej1r/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-1.5 rounded-full bg-[#A92C1F] px-5 py-2 text-xs font-bold text-white transition-all hover:bg-[#8A2318] hover:shadow-md active:scale-95"
@@ -144,7 +144,7 @@ export const Navbar: React.FC = () => {
                 </a>
               ))}
               <a
-                href="/harsh-resume.pdf"
+                href="https://drive.google.com/file/d/1pR4KMhgkr5pR6QSza6Z4bgsiH6FPej1r/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
