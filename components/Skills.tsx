@@ -143,11 +143,6 @@ export const Skills: React.FC = () => {
                       >
                         <CheckCircle2 className="h-3.5 w-3.5 text-[#A92C1F] group-hover/pill:text-white shrink-0 transition-colors" />
                         <span className="font-semibold">{skill.name}</span>
-                        {skill.detail && (
-                          <span className="text-[10px] font-mono text-[#6B6567] group-hover/pill:text-white/80 border-l border-[#A92C1F]/20 pl-2 transition-colors">
-                            {skill.detail}
-                          </span>
-                        )}
                       </div>
                     ))}
                   </div>

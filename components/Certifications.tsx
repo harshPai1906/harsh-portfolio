@@ -65,10 +65,7 @@ export const Certifications: React.FC = () => {
       <div className="mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
         <div className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-4 py-1.5 text-xs font-semibold text-[#A92C1F] shadow-xs">
-            <Award className="h-3.5 w-3.5" />
-            Professional Certifications & Accreditations
-          </div>
+
           <h2 className="font-header text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl">
             CERTIFICATIONS & <span className="text-gradient-accent">CREDENTIALS</span>
           </h2>

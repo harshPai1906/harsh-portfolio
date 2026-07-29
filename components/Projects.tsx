@@ -103,10 +103,7 @@ export const Projects: React.FC = () => {
         {/* Section Header */}
         <div className="mb-12 sm:mb-16 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-4 py-1.5 text-xs font-semibold text-[#A92C1F] shadow-xs">
-              <FolderGit2 className="h-3.5 w-3.5" />
-              Featured Embedded & Hardware Engineering Projects
-            </div>
+
             <h2 className="font-header mt-3 sm:mt-4 text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl">
               FEATURED <span className="text-gradient-accent">WORKS</span>
             </h2>

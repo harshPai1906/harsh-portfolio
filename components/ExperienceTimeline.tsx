@@ -158,10 +158,7 @@ export const ExperienceTimeline: React.FC = () => {
       <div className="mx-auto max-w-6xl">
         {/* Section Header */}
         <div className="mb-12 sm:mb-20 text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-4 py-1.5 text-xs font-semibold text-[#A92C1F] shadow-xs">
-            <Sparkles className="h-3.5 w-3.5 animate-spin-slow text-[#A92C1F]" />
-            Career & Academic Journey
-          </div>
+
           <h2 className="font-header text-3xl font-black tracking-tight text-[#2F2E2F] sm:text-5xl md:text-6xl">
             EXPERIENCE & <span className="text-gradient-accent">TIMELINE</span>
           </h2>
