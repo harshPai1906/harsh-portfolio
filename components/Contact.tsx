@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, Send, Check, Sparkles, ExternalLink, Loader2 } from 'lucide-react';
+import { MessageSquare, Send, Check, ExternalLink, Loader2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { Dock } from '@/components/Dock';
 
@@ -39,7 +39,7 @@ export const Contact: React.FC = () => {
       } else {
         setSubmitted(true);
       }
-    } catch (err: any) {
+    } catch {
       setSubmitted(true);
     } finally {
       setLoading(false);

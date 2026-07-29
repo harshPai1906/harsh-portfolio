@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, MotionValue } from 'framer-motion';
-import { FileText, ArrowUpRight } from 'lucide-react';
+
 
 interface OverlayProps {
   progress?: MotionValue<number>;

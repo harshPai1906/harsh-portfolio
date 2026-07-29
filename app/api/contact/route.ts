@@ -45,10 +45,11 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ success: true, data }, { status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in Resend email route:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Failed to dispatch email';
     return NextResponse.json(
-      { success: false, error: error?.message || 'Failed to dispatch email' },
+      { success: false, error: errorMessage },
       { status: 500 }
     );
   }

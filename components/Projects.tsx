@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, FolderGit2, Heart, ArrowUpRight, CheckCircle2, X } from 'lucide-react';
+import { ExternalLink, FolderGit2, Heart, CheckCircle2, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import CardStack, { Card } from '@/components/ui/card-stack';
 
@@ -65,7 +65,7 @@ const PROJECTS: Project[] = [
 export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const customStackCards: Card[] = PROJECTS.map((proj, idx) => ({
+  const customStackCards: Card[] = PROJECTS.map((proj) => ({
     id: proj.id,
     src: proj.image,
     alt: proj.title,

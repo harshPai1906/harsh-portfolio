@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
-import { Moon, Sun, RotateCcw, Shuffle, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface Card {
   id: number | string;
@@ -66,9 +66,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
   ];
 
   const [cards, setCards] = useState<Card[]>(initialCards);
-  const [isDark, setIsDark] = useState(false);
   const [dragDirection, setDragDirection] = useState<'up' | 'down' | null>(null);
-  const [showInfo, setShowInfo] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const dragY = useMotionValue(0);
@@ -99,17 +97,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
     setCurrentIndex((prev) => (prev - 1 + initialCards.length) % initialCards.length);
   };
 
-  const shuffleCards = () => {
-    const shuffled = [...cards].sort(() => Math.random() - 0.5);
-    setCards(shuffled);
-  };
-
-  const resetCards = () => {
-    setCards(initialCards);
-    setCurrentIndex(0);
-  };
-
-  const handleDragEnd = (_: any, info: any) => {
+  const handleDragEnd = (_: unknown, info: { velocity: { y: number }; offset: { y: number } }) => {
     const velocity = info.velocity.y;
     const offset = info.offset.y;
 
@@ -132,36 +120,19 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
   };
 
   // Theme configuration customized for Harsh's portfolio aesthetics
-  const theme = {
-    dark: {
-      bg: 'bg-[#2F2E2F]',
-      text: 'text-[#F2EFE7]',
-      textSecondary: 'text-gray-400',
-      toggleBg: 'bg-gray-800/80 hover:bg-gray-700/80',
-      toggleBorder: 'border-[#A92C1F]/40',
-      infoBox: 'bg-[#2F2E2F]/90 border-[#A92C1F]/40',
-      shadowCard: '0 25px 50px rgba(169, 44, 31, 0.3)',
-      shadowCardBack: '0 15px 30px rgba(0, 0, 0, 0.4)',
-      cardBorder: 'border-2 border-[#A92C1F]/40',
-      controlBg: 'bg-gray-800/80 hover:bg-gray-700/80',
-      cardInfoBg: 'bg-gradient-to-t from-black/90 via-black/70 to-transparent'
-    },
-    light: {
-      bg: 'bg-[#F2EFE7]',
-      text: 'text-[#2F2E2F]',
-      textSecondary: 'text-gray-600',
-      toggleBg: 'bg-[#E8E3DA] hover:bg-[#DBCDC9]',
-      toggleBorder: 'border-[#A92C1F]/30',
-      infoBox: 'bg-[#F2EFE7]/90 border-[#A92C1F]/30',
-      shadowCard: '0 25px 50px rgba(169, 44, 31, 0.2)',
-      shadowCardBack: '0 15px 30px rgba(0, 0, 0, 0.08)',
-      cardBorder: 'border-2 border-[#A92C1F]/30',
-      controlBg: 'bg-[#E8E3DA] hover:bg-[#DBCDC9]',
-      cardInfoBg: 'bg-gradient-to-t from-[#2F2E2F]/95 via-[#2F2E2F]/70 to-transparent'
-    }
+  const currentTheme = {
+    bg: 'bg-transparent',
+    text: 'text-[#2F2E2F]',
+    textSecondary: 'text-gray-600',
+    toggleBg: 'bg-[#E8E3DA] hover:bg-[#DBCDC9]',
+    toggleBorder: 'border-[#A92C1F]/30',
+    infoBox: 'bg-[#F2EFE7]/90 border-[#A92C1F]/30',
+    shadowCard: '0 25px 50px rgba(169, 44, 31, 0.25)',
+    shadowCardBack: '0 15px 30px rgba(0, 0, 0, 0.1)',
+    cardBorder: 'border-2 border-[#A92C1F]/30',
+    controlBg: 'bg-[#E8E3DA] hover:bg-[#DBCDC9]',
+    cardInfoBg: 'bg-gradient-to-t from-[#2F2E2F]/95 via-[#2F2E2F]/70 to-transparent'
   };
-
-  const currentTheme = isDark ? theme.dark : theme.light;
 
   return (
     <div className="w-full min-h-[500px] sm:min-h-[550px] flex flex-col items-center justify-center bg-transparent relative overflow-hidden p-2 sm:p-6">

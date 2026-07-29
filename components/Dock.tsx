@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, FileText, Mail, Phone, MessageSquare, Check, Copy } from 'lucide-react';
+import { Mail, Phone, MessageSquare, Check } from 'lucide-react';
 
 interface DockProps {
   email?: string;

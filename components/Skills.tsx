@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Code2, Wrench, Palette, Brain, CheckCircle2, Sparkles, Database, BarChart3 } from 'lucide-react';
+import { Cpu, Code2, Wrench, Palette, Brain, CheckCircle2, Database } from 'lucide-react';
 
 interface SkillCategory {
   title: string;
