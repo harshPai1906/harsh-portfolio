@@ -135,7 +135,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
   };
 
   return (
-    <div className="w-full min-h-[500px] sm:min-h-[550px] flex flex-col items-center justify-center bg-transparent relative overflow-hidden p-2 sm:p-6">
+    <div className="w-full min-h-[550px] sm:min-h-[650px] flex flex-col items-center justify-center bg-transparent relative overflow-hidden p-2 sm:p-6">
 
       {/* Top Progress Indicator Bar */}
       <div className="w-full flex items-center justify-center z-30 mb-8 max-w-2xl">
@@ -155,7 +155,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
       </div>
 
       {/* Main Interactive Stack Container */}
-      <div className="relative w-full max-w-xl aspect-[16/10] sm:aspect-[16/9] overflow-visible z-10 flex items-center justify-center my-4">
+      <div className="relative w-full max-w-2xl aspect-[16/10] sm:aspect-[16/9] overflow-visible z-10 flex items-center justify-center my-4">
         {/* Navigation Buttons */}
         <motion.button
           onClick={moveToStart}
