@@ -1,0 +1,49 @@
+=== PAGE 1 ===
+Harsh Gangaram Pai
+/envel⌢peharshpai0hp@gmail.com | ♂phone+91-9834044641 | /linkedinLinkedIn | /githubGitHub
+Education
+B.T ech. Electronics and Communication Engineering, VIT Vellore Aug 2023 – Present
+CGPA: 8.45
+GBSHSE, Dempo Higher Secondary School of Science, Taleigaon Apr 2022
+Percentage: 82.16%
+MSBSHSE, Milagris High School, Sawantwadi Apr 2020
+Percentage: 95.81%
+Skills
+• Programming: SQL, Python, C, C++, Java, Verilog, Assembly (8051)
+• T ools:PostgreSQL, Power BI, ModelSim, Quartus, A WR, Keil µVision, Proteus
+• Hardware: 8051, Raspberry Pi, Arduino, Sensors, Motor Drivers
+• Design: Photoshop, Canva, Figma, Filmora
+• Soft Skills: Problem Solving, Communication, Teamwork, Analytical Thinking, Leadership
+Experience
+Data Analyst Intern | Confection Cosmos Pvt. Ltd., Mumbai May 2025 – Jun 2025
+• Analyzed business data using SQL, Python, and Excel to identify trends, patterns, and actionable insights for decision-
+making.
+• Cleaned, transformed, and validated datasets using Pandas and SQL, improving data quality and consistency for
+analysis.
+• Collaborated with cross-functional teams to interpret analytical findings and present data-driven recommendations for
+business improvement.
+Projects
+Obstacle Avoiding Robot | Arduino, Raspberry Pi Nov 2024 – Dec 2024
+• Integrated Arduino microcontroller with motors and multiple sensors , enabling dynamic path correction .
+• Programmed sensor-driven navigation algorithms, reducing collisions by over 90%.
+• Applied embedded systems and circuit integration expertise to optimize robot performance.
+T emperature Monitoring System | LM35, 8051 Microcontroller May 2025 – Jun 2025
+• Engineered a temperature monitoring system using LM35, ADC0804, and 8051 with ±1°C accuracy.
+• Programmed in Keil µVision, enhancing data communication efficiency by 20% .
+• Implemented LCD display integration, reducing reading errors by 15%.
+Smoke Detector | Arduino, MQ-2 Sensor Feb 2025 – Mar 2025
+• Developed a smoke detection system with ¡3s response time , enhancing safety monitoring.
+• Optimized MQ-2 sensor calibration , achieving 92% detection accuracy .
+• Added buzzer and LED alerts , ensuring 100% real-time notifications .
+Certifications
+VLSI Design and V erification Program | Ethnus May 2025 – June 2025
+• Trained in digital and analog VLSI , verification methods, and hardware modeling.
+• Secured Grade A (90/100) through projects and assessments.
+Oracle Cloud Infrastructure 2025 Certified Data Science Professional | Oracle August 2025 – September 2025
+• Certified in cloud-based data analysis , data modeling , and data visualization.
+• Validated skills in data preparation, report generation , and performance optimization .
+Extracurricular Activities
+• Secretary, Marathi Literary Association, VIT Vellore – Directed event planning.
+• Head of Design , Marathi Literary Association, VIT Vellore – Directed design strategy , branding, and digital
+content creation.
+• Coordinator, graVitas ’25 Technical Fest – Oversaw Halls and Refreshments, improving operational efficiency.
