@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Harsh Gangaram Pai | B.Tech ECE Portfolio & Embedded Systems",
-  description: "Personal portfolio website of Harsh Gangaram Pai — B.Tech ECE Student at VIT Vellore. Embedded systems engineer, microcontrollers, VLSI design, and UI/UX developer.",
+  title: "Harsh Gangaram Pai",
+  description: "Personal portfolio website of Harsh Gangaram Pai. Embedded systems engineer, microcontrollers, VLSI design, and UI/UX developer.",
   keywords: [
     "Harsh Gangaram Pai",
     "Harsh Pai",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     apple: "/hp-logo.png",
   },
   openGraph: {
-    title: "Harsh Gangaram Pai | B.Tech ECE Student @ VIT Vellore",
+    title: "Harsh Gangaram Pai",
     description: "Embedded Systems, Microcontrollers, VLSI Design, and Modern UI/UX Web Engineering.",
     type: "website",
   },
