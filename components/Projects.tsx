@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, FolderGit2, Heart, CheckCircle2, X } from 'lucide-react';
+import { ExternalLink, FolderGit2, Heart, HeartOff, CheckCircle2, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import CardStack, { Card } from '@/components/ui/card-stack';
 
@@ -11,7 +11,7 @@ interface Project {
   title: string;
   category: string;
   description: string;
-  metrics: string;
+  metrics?: string;
   image: string;
   tags: string[];
   demoUrl: string;
@@ -26,7 +26,6 @@ const PROJECTS: Project[] = [
     title: 'Obstacle Avoiding Robot',
     category: 'Robotics & Microcontrollers',
     description: 'Integrated Arduino microcontroller with motors and multiple sensors enabling dynamic path correction.',
-    metrics: '>90% Collision Reduction',
     image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
     tags: ['Arduino', 'Raspberry Pi', 'Sensors', 'C++', 'Motor Drivers'],
     demoUrl: '#',
@@ -39,7 +38,6 @@ const PROJECTS: Project[] = [
     title: 'Temperature Monitoring System',
     category: 'Embedded Systems & 8051',
     description: 'Engineered a precision temperature monitoring system using LM35, ADC0804, and 8051 with ±1°C accuracy.',
-    metrics: '±1°C High Precision',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
     tags: ['8051 Assembly', 'Keil µVision', 'LM35', 'ADC0804', 'Proteus'],
     demoUrl: '#',
@@ -52,7 +50,6 @@ const PROJECTS: Project[] = [
     title: 'MQ-2 Smoke & Gas Detector',
     category: 'Safety & Sensors',
     description: 'Developed real-time smoke detection system with <3s response time and 92% detection accuracy.',
-    metrics: '<3s Fast Response',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
     tags: ['Arduino', 'MQ-2 Sensor', 'C++', 'Buzzer Alerts', 'Hardware Calib'],
     demoUrl: '#',
@@ -64,6 +61,12 @@ const PROJECTS: Project[] = [
 
 export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [likes, setLikes] = useState<Record<string, number>>({
+    'obstacle-robot': 24,
+    'temp-monitor': 18,
+    'smoke-detector': 31,
+  });
+  const [likedProjects, setLikedProjects] = useState<Record<string, boolean>>({});
 
   const customStackCards: Card[] = PROJECTS.map((proj) => ({
     id: proj.id,
@@ -72,18 +75,27 @@ export const Projects: React.FC = () => {
     title: proj.title,
     description: proj.description,
     category: proj.category,
-    metrics: proj.metrics,
-    tags: proj.tags
+    tags: proj.tags,
+    likes: likes[proj.id] || 0,
+    isLiked: !!likedProjects[proj.id],
   }));
 
-  const handleConfetti = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.7 },
-      colors: ['#A92C1F', '#DBCDC9', '#E8E3DA', '#2F2E2F']
-    });
+  const handleToggleLike = (projectId: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    const isCurrentlyLiked = !!likedProjects[projectId];
+    if (!isCurrentlyLiked) {
+      setLikedProjects((prev) => ({ ...prev, [projectId]: true }));
+      setLikes((prev) => ({ ...prev, [projectId]: (prev[projectId] || 0) + 1 }));
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.7 },
+        colors: ['#A92C1F', '#DBCDC9', '#E8E3DA', '#2F2E2F']
+      });
+    } else {
+      setLikedProjects((prev) => ({ ...prev, [projectId]: false }));
+      setLikes((prev) => ({ ...prev, [projectId]: Math.max(0, (prev[projectId] || 1) - 1) }));
+    }
   };
 
   const handleSelectStackCard = (stackCard: Card) => {
@@ -190,23 +202,37 @@ export const Projects: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#A92C1F]/20 pt-6">
-                <button
-                  onClick={handleConfetti}
-                  className="flex items-center gap-2 rounded-full bg-[#A92C1F] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity shadow-md"
-                >
-                  <Heart className="h-4 w-4 fill-white" />
-                  Applaud Project
-                </button>
-
-                <div className="flex items-center gap-3">
-                  <a
-                    href="#contact"
-                    onClick={() => setSelectedProject(null)}
-                    className="flex items-center gap-2 rounded-full border border-[#A92C1F]/40 bg-[#E8E3DA] px-4 py-2.5 text-sm font-semibold text-[#A92C1F] hover:bg-[#A92C1F] hover:text-white transition-colors"
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={(e) => handleToggleLike(selectedProject.id, e)}
+                    className={`flex items-center gap-2.5 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-all shadow-md active:scale-95 ${
+                      likedProjects[selectedProject.id]
+                        ? 'bg-[#8E2419] ring-2 ring-[#A92C1F]/40'
+                        : 'bg-[#A92C1F] hover:bg-[#8E2419]'
+                    }`}
                   >
-                    <ExternalLink className="h-4 w-4" />
-                    Inquire About Project
-                  </a>
+                    <Heart className={`h-4 w-4 ${likedProjects[selectedProject.id] ? 'fill-white' : 'fill-white/40'}`} />
+                    <span>{likedProjects[selectedProject.id] ? 'Applauded' : 'Applaud Project'}</span>
+                    <span className="ml-1 rounded-full bg-white/20 px-2 py-0.5 text-xs font-mono font-bold">
+                      {likes[selectedProject.id] || 0}
+                    </span>
+                  </button>
+
+                  {likedProjects[selectedProject.id] && (
+                    <button
+                      onClick={(e) => handleToggleLike(selectedProject.id, e)}
+                      className="flex items-center gap-1.5 rounded-full border border-[#A92C1F]/40 bg-[#E8E3DA] px-4 py-2 text-xs font-semibold text-[#A92C1F] hover:bg-[#A92C1F] hover:text-white transition-colors"
+                      title="Unlike / Remove Applaud"
+                    >
+                      <HeartOff className="h-3.5 w-3.5" />
+                      Unlike
+                    </button>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#A92C1F]">
+                  <Heart className="h-4 w-4 fill-[#A92C1F]" />
+                  <span>{likes[selectedProject.id] || 0} Applauses</span>
                 </div>
               </div>
             </motion.div>

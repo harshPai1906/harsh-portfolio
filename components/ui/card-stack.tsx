@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 
 export interface Card {
   id: number | string;
@@ -14,6 +14,8 @@ export interface Card {
   metrics?: string;
   tags?: string[];
   fullDetails?: string;
+  likes?: number;
+  isLiked?: boolean;
 }
 
 interface CardStackProps {
@@ -30,7 +32,6 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
       title: "Obstacle Avoiding Robot",
       description: "Autonomous path-correcting mobile robot powered by Arduino & Raspberry Pi.",
       category: "Robotics & Microcontrollers",
-      metrics: ">90% Collision Reduction",
       tags: ['Arduino', 'Raspberry Pi', 'Sensors', 'C++']
     },
     {
@@ -40,7 +41,6 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
       title: "Temperature Monitoring System",
       description: "Precision 8051 assembly system with LM35 sensor & ADC0804 converter.",
       category: "Embedded Systems & 8051",
-      metrics: "±1°C High Precision",
       tags: ['8051 Assembly', 'Keil µVision', 'LM35', 'LCD']
     },
     {
@@ -50,7 +50,6 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
       title: "MQ-2 Smoke & Gas Detector",
       description: "Real-time hazard notification system with sub-3-second trigger response.",
       category: "Safety & Sensors",
-      metrics: "<3s Fast Response",
       tags: ['Arduino', 'MQ-2 Sensor', 'C++', 'Buzzer']
     },
     {
@@ -60,7 +59,6 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
       title: "Power BI Sales Analytics Dashboard",
       description: "Interactive data visualization dashboard extracting revenue trends & KPIs.",
       category: "Data Analytics & BI",
-      metrics: "Operational Insights",
       tags: ['Power BI', 'SQL', 'PostgreSQL', 'Python']
     },
   ];
@@ -251,11 +249,18 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
                     </div>
                   )}
 
-                  {metrics && (
-                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 rounded-full border border-[#A92C1F]/40 bg-[#A92C1F] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono font-bold text-white shadow-md z-20 max-w-[42%] truncate">
-                      {metrics}
-                    </div>
-                  )}
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 z-20">
+                    {cards[i]?.likes !== undefined && (
+                      <div className={`flex items-center gap-1 rounded-full border px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono font-bold shadow-md backdrop-blur-md transition-all ${
+                        cards[i]?.isLiked 
+                          ? 'border-[#A92C1F] bg-[#A92C1F] text-white' 
+                          : 'border-white/30 bg-[#2F2E2F]/80 text-white'
+                      }`}>
+                        <Heart className={`h-3 w-3 ${cards[i]?.isLiked ? 'fill-white' : 'fill-white/30'}`} />
+                        <span>{cards[i]?.likes}</span>
+                      </div>
+                    )}
+                  </div>
 
                   {/* Card Info Overlay */}
                   <motion.div
