@@ -215,7 +215,7 @@ export const Contact: React.FC = () => {
                 <textarea
                   rows={4}
                   required
-                  placeholder="Describe your data analytics query, project opportunity, or collaboration..."
+                  placeholder="Open for internships, queries..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full rounded-xl border border-[#A92C1F]/30 bg-[#F2EFE7] px-4 py-3 text-xs sm:text-sm text-[#2F2E2F] placeholder-[#8A8385] focus:border-[#A92C1F] focus:outline-none focus:ring-2 focus:ring-[#A92C1F]/20 resize-none font-medium transition-all duration-200"
