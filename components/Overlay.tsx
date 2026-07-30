@@ -122,7 +122,7 @@ export const Overlay: React.FC<OverlayProps> = () => {
           {/* Bottom Right */}
           <div className="flex flex-col items-end text-right">
             <div className="font-header flex flex-col text-[#A92C1F] font-black text-[9px] sm:text-xs md:text-base leading-snug">
-              <span>DEVELOPER</span>
+              <span>ANALYZER</span>
               <span>DESIGNER</span>
               <span>PROBLEM SOLVER</span>
             </div>
