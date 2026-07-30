@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { Award, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 import { ConstellationCanvas } from '@/components/ConstellationCanvas';
 
 interface Certification {
@@ -15,6 +15,7 @@ interface Certification {
   description: string;
   skillsAcquired: string[];
   verifyUrl: string;
+  buttonText?: string;
 }
 
 const CERTIFICATIONS: Certification[] = [
@@ -32,7 +33,8 @@ const CERTIFICATIONS: Certification[] = [
       'Logic Synthesis in Intel Quartus',
       'Digital & Analog VLSI Circuit Architecture'
     ],
-    verifyUrl: '#'
+    verifyUrl: 'https://drive.google.com/file/d/1ZLwkaa1lvSXcbN7nqIeFgAVRYNdohRiA/view?usp=sharing',
+    buttonText: 'VIEW OFFICIAL CERTIFICATE'
   },
   {
     id: 'oracle-data-science',
@@ -48,7 +50,8 @@ const CERTIFICATIONS: Certification[] = [
       'Automated Data Visualization Dashboards',
       'Cloud Infrastructure Performance Tuning'
     ],
-    verifyUrl: '#'
+    verifyUrl: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=6ADFB90E2D28A1C7CE540EAF494CEA0A20A400520F58142753EE900217023649',
+    buttonText: 'VIEW CREDENTIALS'
   }
 ];
 
@@ -114,30 +117,38 @@ export const Certifications: React.FC = () => {
                   {cert.description}
                 </p>
 
-                {/* Skills Acquired List */}
-                <div className="space-y-2.5 mb-6 pt-4 border-t border-[#A92C1F]/15">
-                  <div className="text-xs font-mono uppercase tracking-wider text-[#A92C1F] font-bold">
-                    Key Competencies & Verified Skills
-                  </div>
-                  {cert.skillsAcquired.map((skill) => (
-                    <div key={skill} className="flex items-center gap-2 text-xs text-[#2F2E2F] font-medium">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#A92C1F] shrink-0" />
-                      <span>{skill}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-[#A92C1F]/15">
-                {cert.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-md bg-[#F2EFE7] border border-[#A92C1F]/25 px-2.5 py-1 text-xs text-[#2F2E2F] font-mono font-medium"
+              <div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-[#A92C1F]/15 mb-5">
+                  {cert.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md bg-[#F2EFE7] border border-[#A92C1F]/25 px-2.5 py-1 text-xs text-[#2F2E2F] font-mono font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Certificate Action Link Button */}
+                {cert.verifyUrl && cert.verifyUrl !== '#' ? (
+                  <a
+                    href={cert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 w-full rounded-xl bg-[#A92C1F] hover:bg-[#8A2318] px-5 py-3 text-xs font-mono font-bold text-white shadow-md hover:shadow-lg transition-all duration-200 group/btn"
                   >
-                    {tag}
-                  </span>
-                ))}
+                    <span>{cert.buttonText || 'VIEW OFFICIAL CERTIFICATE'}</span>
+                    <ExternalLink className="h-4 w-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                  </a>
+                ) : (
+                  <div className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-[#F2EFE7] border border-[#A92C1F]/20 px-5 py-3 text-xs font-mono font-semibold text-[#5A5556]">
+                    <ShieldCheck className="h-4 w-4 text-[#A92C1F]" />
+                    <span>ACADEMICALLY VERIFIED</span>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
@@ -146,3 +157,4 @@ export const Certifications: React.FC = () => {
     </section>
   );
 };
+
