@@ -15,6 +15,7 @@ export const Contact: React.FC = () => {
   const email = 'harshpai0hp@gmail.com';
   const phone = '+91-9834044641';
   const linkedinUrl = 'https://www.linkedin.com/in/harsh-pai-1467a2315/';
+  const githubUrl = 'https://github.com/harshPai1906';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -250,7 +251,7 @@ export const Contact: React.FC = () => {
           transition={{ delay: 0.15 }}
           className="mt-6 flex justify-center items-center"
         >
-          <Dock email={email} phone={phone} linkedinUrl={linkedinUrl} />
+          <Dock email={email} phone={phone} linkedinUrl={linkedinUrl} githubUrl={githubUrl} />
         </motion.div>
       </div>
     </section>

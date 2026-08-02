@@ -26,13 +26,13 @@ interface CardStackProps {
 export default function CardStack({ customCards, onSelectCard }: CardStackProps) {
   const initialCards: Card[] = customCards || [
     {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-      alt: "Obstacle Avoiding Robot",
-      title: "Obstacle Avoiding Robot",
-      description: "Autonomous path-correcting mobile robot powered by Arduino & Raspberry Pi.",
-      category: "Robotics & Microcontrollers",
-      tags: ['Arduino', 'Raspberry Pi', 'Sensors', 'C++']
+      id: 'churniq-analytics',
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      alt: "ChurnIQ – Customer Churn Analytics Dashboard",
+      title: "ChurnIQ – Customer Churn Analytics",
+      description: "Customer churn analytics dashboard powered by XGBoost, Pandas, Seaborn & SQL.",
+      category: "Data Analytics & ML",
+      tags: ['Pandas', 'Seaborn', 'SQL', 'XGBoost', 'Python']
     },
     {
       id: 2,

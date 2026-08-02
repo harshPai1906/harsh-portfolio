@@ -73,24 +73,24 @@ export default function OverlayContent() {
 
   const projects: ProjectData[] = [
     {
-      title: "Obstacle Avoiding Robot",
-      category: "Robotics & Microcontrollers",
-      description: "Integrated Arduino microcontroller with motors and multiple sensors enabling dynamic path correction.",
-      longDescription: "Engineered an autonomous mobile robot using an Arduino microcontroller and Raspberry Pi integrated with ultrasonic/IR sensors. Programmed sensor-driven navigation algorithms reducing collision rates by over 90%. Applied embedded circuit integration to optimize battery life and motor response time.",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop",
-      tags: ["Arduino", "Raspberry Pi", "Sensors", "C++", "Motor Drivers"],
+      title: "ChurnIQ – Customer Churn Analytics Dashboard",
+      category: "Data Analytics & Machine Learning",
+      description: "Turning customer data into actionable retention insights using Python, XGBoost, Pandas, and interactive visualization.",
+      longDescription: "Analyzed 25,000 customer records using Pandas, SQL, and EDA to identify churn patterns. Trained XGBoost, Logistic Regression, and Random Forest models using an 80/20 train-test split. Selected XGBoost with 88.56% accuracy, 85.62% precision, 81.69% recall, and 0.955 ROC-AUC. Achieved the lowest test error of 11.44% with 572 misclassifications on 5,000 test records.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      tags: ["Pandas", "Seaborn", "SQL", "XGBoost", "Logistic Regression", "Random Forest", "Python", "EDA"],
       metrics: [
-        { label: "Collision Reduction", value: ">90%" },
-        { label: "Hardware Platform", value: "Arduino & Pi" },
-        { label: "Time Period", value: "Nov-Dec 2024" },
+        { label: "Accuracy", value: "88.56%" },
+        { label: "ROC-AUC", value: "0.955" },
+        { label: "Dataset Size", value: "25,000" },
       ],
       features: [
-        "Dynamic path correction algorithms",
-        "Multi-sensor data fusion",
-        "Pulse Width Modulation motor control",
-        "Embedded circuit power optimization",
+        "25,000 customer records analyzed via Pandas, SQL & EDA",
+        "Trained XGBoost, Logistic Regression & Random Forest models (80/20 split)",
+        "Selected XGBoost with 88.56% accuracy & 0.955 ROC-AUC (85.62% precision, 81.69% recall)",
+        "Achieved lowest test error of 11.44% with 572 misclassifications on 5,000 test records",
       ],
-      liveUrl: "#",
+      liveUrl: "https://churniq-analytics.vercel.app/",
       githubUrl: "#",
     },
     {

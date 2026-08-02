@@ -22,16 +22,21 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    id: 'obstacle-robot',
-    title: 'Obstacle Avoiding Robot',
-    category: 'Robotics & Microcontrollers',
-    description: 'Integrated Arduino microcontroller with motors and multiple sensors enabling dynamic path correction.',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
-    tags: ['Arduino', 'Raspberry Pi', 'Sensors', 'C++', 'Motor Drivers'],
-    demoUrl: '#',
+    id: 'churniq-analytics',
+    title: 'ChurnIQ – Customer Churn Analytics Dashboard',
+    category: 'Data Analytics & Machine Learning',
+    description: 'Analyzed 25,000 customer records and trained XGBoost, Logistic Regression & Random Forest models to predict churn with 88.56% accuracy.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    tags: ['Pandas', 'Seaborn', 'SQL', 'XGBoost', 'Logistic Regression', 'Random Forest', 'Python', 'EDA'],
+    demoUrl: 'https://churniq-analytics.vercel.app/',
     githubUrl: '#',
-    fullDetails: 'Engineered an autonomous mobile robot using an Arduino microcontroller and Raspberry Pi integrated with ultrasonic/IR sensors. Programmed sensor-driven navigation algorithms reducing collision rates by over 90%. Applied embedded circuit integration to optimize battery life and motor response time.',
-    features: ['Dynamic path correction algorithm', 'Multi-sensor data fusion', 'Pulse Width Modulation (PWM) motor control', 'Embedded circuit power optimization']
+    fullDetails: 'Analyzed 25,000 customer records using Pandas, SQL, and EDA to identify churn patterns. Trained XGBoost, Logistic Regression, and Random Forest models using an 80/20 train-test split. Selected XGBoost with 88.56% accuracy, 85.62% precision, 81.69% recall, and 0.955 ROC-AUC. Achieved the lowest test error of 11.44% with 572 misclassifications on 5,000 test records.',
+    features: [
+      '25,000 customer records analyzed via Pandas, SQL & EDA to identify churn patterns',
+      'Trained XGBoost, Logistic Regression, and Random Forest models using an 80/20 train-test split',
+      'Selected XGBoost with 88.56% accuracy, 85.62% precision, 81.69% recall, and 0.955 ROC-AUC',
+      'Achieved lowest test error of 11.44% with 572 misclassifications on 5,000 test records'
+    ]
   },
   {
     id: 'temp-monitor',
@@ -62,7 +67,7 @@ const PROJECTS: Project[] = [
 export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [likes, setLikes] = useState<Record<string, number>>({
-    'obstacle-robot': 24,
+    'churniq-analytics': 35,
     'temp-monitor': 18,
     'smoke-detector': 31,
   });
@@ -122,7 +127,7 @@ export const Projects: React.FC = () => {
           </div>
 
           <div className="text-xs sm:text-sm font-mono text-[#A92C1F] font-bold">
-            SHOWCASING 03 HARDWARE PROJECTS
+            SHOWCASING FEATURED PROJECTS
           </div>
         </div>
 
@@ -203,6 +208,18 @@ export const Projects: React.FC = () => {
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#A92C1F]/20 pt-6">
                 <div className="flex flex-wrap items-center gap-3">
+                  {selectedProject.demoUrl && selectedProject.demoUrl !== '#' && (
+                    <a
+                      href={selectedProject.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full bg-[#2F2E2F] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#A92C1F] transition-all shadow-md active:scale-95"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      <span>Live Website</span>
+                    </a>
+                  )}
+
                   <button
                     onClick={(e) => handleToggleLike(selectedProject.id, e)}
                     className={`flex items-center gap-2.5 rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-all shadow-md active:scale-95 ${
