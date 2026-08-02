@@ -13,14 +13,14 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    
+
     // Check if API key is missing or still set to placeholder
     if (!apiKey || apiKey.includes('your_api_key_here')) {
       console.warn('RESEND_API_KEY is not configured in .env.local');
       return NextResponse.json(
-        { 
-          success: false, 
-          error: 'RESEND_API_KEY not set in .env.local. Please paste your Resend API key starting with re_ into .env.local' 
+        {
+          success: false,
+          error: 'RESEND_API_KEY not set in .env.local. Please paste your Resend API key starting with re_ into .env.local'
         },
         { status: 400 }
       );

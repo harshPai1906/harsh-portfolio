@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.5.4",
+    "@types/three": "^0.185.1",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
     "framer-motion": "^12.43.0",
@@ -17,7 +19,8 @@
     "react": "^18",
     "react-dom": "^18",
     "resend": "^6.18.1",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@types/node": "^20",

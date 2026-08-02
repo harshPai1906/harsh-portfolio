@@ -53,11 +53,10 @@ export const Navbar: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-3 sm:py-4 transition-all duration-300 pointer-events-none">
       <nav
-        className={`mx-auto max-w-6xl pointer-events-auto transition-all duration-500 rounded-full border border-white/60 shadow-2xl backdrop-blur-2xl ${
-          scrolled
+        className={`mx-auto max-w-6xl pointer-events-auto transition-all duration-500 rounded-full border border-white/60 shadow-2xl backdrop-blur-2xl ${scrolled
             ? 'bg-[#F2EFE7]/50 py-2.5 px-5 sm:px-8 border-[#A92C1F]/30'
             : 'bg-[#F2EFE7]/40 py-3 px-6 sm:px-8'
-        }`}
+          }`}
         style={{
           boxShadow: '0 8px 32px 0 rgba(47, 46, 47, 0.1), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8)',
           backdropFilter: 'blur(20px)',
@@ -85,11 +84,10 @@ export const Navbar: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`relative px-4 py-1.5 text-xs font-mono tracking-wider uppercase font-semibold transition-all rounded-full ${
-                    isActive
+                  className={`relative px-4 py-1.5 text-xs font-mono tracking-wider uppercase font-semibold transition-all rounded-full ${isActive
                       ? 'text-white bg-[#A92C1F] shadow-sm'
                       : 'text-[#5A5556] hover:text-[#A92C1F] hover:bg-[#A92C1F]/10'
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </a>
@@ -100,7 +98,7 @@ export const Navbar: React.FC = () => {
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://drive.google.com/file/d/1pR4KMhgkr5pR6QSza6Z4bgsiH6FPej1r/view?usp=sharing"
+              href="https://drive.google.com/file/d/1dxaXEaPpQKU7ZMBYwc8NU1t_-CXvfQE_/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-1.5 rounded-full bg-[#A92C1F] px-5 py-2 text-xs font-bold text-white transition-all hover:bg-[#8A2318] hover:shadow-md active:scale-95"
@@ -144,7 +142,7 @@ export const Navbar: React.FC = () => {
                 </a>
               ))}
               <a
-                href="https://drive.google.com/file/d/1pR4KMhgkr5pR6QSza6Z4bgsiH6FPej1r/view?usp=sharing"
+                href="https://drive.google.com/file/d/1dxaXEaPpQKU7ZMBYwc8NU1t_-CXvfQE_/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
