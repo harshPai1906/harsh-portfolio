@@ -129,14 +129,14 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
     shadowCardBack: '0 15px 30px rgba(0, 0, 0, 0.1)',
     cardBorder: 'border-2 border-[#A92C1F]/30',
     controlBg: 'bg-[#E8E3DA] hover:bg-[#DBCDC9]',
-    cardInfoBg: 'bg-gradient-to-t from-[#2F2E2F]/95 via-[#2F2E2F]/70 to-transparent'
+    cardInfoBg: 'bg-gradient-to-t from-[#2F2E2F] via-[#2F2E2F]/90 via-60% to-transparent'
   };
 
   return (
-    <div className="w-full min-h-[550px] sm:min-h-[650px] flex flex-col items-center justify-center bg-transparent relative overflow-hidden p-2 sm:p-6">
+    <div className="w-full min-h-[480px] sm:min-h-[650px] flex flex-col items-center justify-center bg-transparent relative overflow-hidden p-2 sm:p-6">
 
       {/* Top Progress Indicator Bar */}
-      <div className="w-full flex items-center justify-center z-30 mb-8 max-w-2xl">
+      <div className="w-full flex items-center justify-center z-30 mb-6 sm:mb-8 max-w-2xl">
         <div className="flex gap-2 z-20 items-center">
           {initialCards.map((_, i) => (
             <motion.div
@@ -153,7 +153,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
       </div>
 
       {/* Main Interactive Stack Container */}
-      <div className="relative w-full max-w-2xl aspect-[16/10] sm:aspect-[16/9] overflow-visible z-10 flex items-center justify-center my-4">
+      <div className="relative w-full max-w-2xl aspect-[4/5] xs:aspect-[3/4] sm:aspect-[16/9] overflow-visible z-10 flex items-center justify-center my-2 sm:my-4">
         {/* Navigation Buttons */}
         <motion.button
           onClick={moveToStart}
@@ -244,7 +244,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
 
                   {/* Top Badges */}
                   {category && (
-                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 rounded-full border border-white/30 bg-[#2F2E2F]/80 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-white backdrop-blur-md shadow-md z-20 max-w-[55%] truncate">
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 rounded-full border border-white/30 bg-[#2F2E2F]/80 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-white backdrop-blur-md shadow-md z-20 max-w-[60%] truncate">
                       {category}
                     </div>
                   )}
@@ -264,7 +264,7 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
 
                   {/* Card Info Overlay */}
                   <motion.div
-                    className={`absolute bottom-0 left-0 right-0 p-6 ${currentTheme.cardInfoBg} text-left flex flex-col justify-end z-20`}
+                    className={`absolute bottom-0 left-0 right-0 p-3.5 sm:p-6 pt-10 sm:pt-14 ${currentTheme.cardInfoBg} text-left flex flex-col justify-end z-20`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ 
                       opacity: isFront ? 1 : 0.8,
@@ -272,20 +272,20 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
                     }}
                     transition={{ duration: 0.2 }}
                   >
-                    <h3 className="text-white font-header text-xl sm:text-2xl font-black tracking-tight leading-tight">
+                    <h3 className="text-white font-header text-base sm:text-2xl font-black tracking-tight leading-tight sm:leading-tight">
                       {title}
                     </h3>
-                    <p className="text-white/90 text-xs sm:text-sm font-medium mt-1 leading-relaxed">
+                    <p className="text-white/90 text-xs sm:text-sm font-medium mt-1 leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
                       {description}
                     </p>
 
                     {/* Tag Pills */}
                     {tags && (
-                      <div className="flex flex-wrap gap-1.5 mt-3">
+                      <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-2 sm:mt-3">
                         {tags.map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-md bg-white/15 border border-white/25 px-2 py-0.5 text-[10px] font-mono text-white font-medium backdrop-blur-xs"
+                            className="rounded-md bg-white/15 border border-white/25 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-mono text-white font-medium backdrop-blur-xs"
                           >
                             {tag}
                           </span>

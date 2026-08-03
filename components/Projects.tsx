@@ -160,22 +160,22 @@ export const Projects: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative z-10 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl border border-[#A92C1F]/30 bg-[#F2EFE7] p-6 shadow-2xl md:p-10 text-[#2F2E2F]"
+              className="relative z-10 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl border border-[#A92C1F]/30 bg-[#F2EFE7] p-5 sm:p-8 md:p-10 shadow-2xl text-[#2F2E2F]"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
                 aria-label="Close project modal"
-                className="absolute top-6 right-6 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] p-2 text-[#2F2E2F] hover:bg-[#A92C1F] hover:text-white transition-colors"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] p-2 text-[#2F2E2F] hover:bg-[#A92C1F] hover:text-white transition-colors z-20"
               >
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-3 py-1 text-xs font-semibold text-[#A92C1F] mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#A92C1F]/30 bg-[#E8E3DA] px-3 py-1 text-xs font-semibold text-[#A92C1F] mb-3 max-w-[75%] truncate">
                 {selectedProject.category}
               </div>
 
-              <h3 className="text-3xl font-extrabold sm:text-4xl text-[#2F2E2F]">
+              <h3 className="text-2xl font-extrabold sm:text-4xl text-[#2F2E2F] leading-tight pr-8">
                 {selectedProject.title}
               </h3>
 
