@@ -242,57 +242,69 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
                     draggable={false}
                   />
 
-                  {/* Top Badges */}
-                  {category && (
-                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 rounded-full border border-white/30 bg-[#2F2E2F]/80 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-white backdrop-blur-md shadow-md z-20 max-w-[60%] truncate">
-                      {category}
+                  {/* Dark scrim overlay across whole image for guaranteed high contrast text */}
+                  <div className="absolute inset-0 bg-[#2F2E2F]/45 backdrop-blur-[1px] z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2F2E2F] via-[#2F2E2F]/80 to-transparent z-15" />
+
+                  {/* Structured Card Content: Top Badges + Bottom Info */}
+                  <div className="absolute inset-0 p-3.5 sm:p-6 z-20 flex flex-col justify-between pointer-events-none">
+                    {/* Top Badges Row */}
+                    <div className="flex items-center justify-between gap-2 w-full">
+                      {category ? (
+                        <div className="rounded-full border border-white/30 bg-[#2F2E2F]/85 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-white backdrop-blur-md shadow-md max-w-[65%] truncate pointer-events-auto">
+                          {category}
+                        </div>
+                      ) : <div />}
+
+                      {cards[i]?.likes !== undefined && (
+                        <div className={`flex items-center gap-1 rounded-full border px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono font-bold shadow-md backdrop-blur-md transition-all pointer-events-auto ${
+                          cards[i]?.isLiked 
+                            ? 'border-[#A92C1F] bg-[#A92C1F] text-white' 
+                            : 'border-white/30 bg-[#2F2E2F]/85 text-white'
+                        }`}>
+                          <Heart className={`h-3 w-3 ${cards[i]?.isLiked ? 'fill-white' : 'fill-white/30'}`} />
+                          <span>{cards[i]?.likes}</span>
+                        </div>
+                      )}
                     </div>
-                  )}
 
-                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 z-20">
-                    {cards[i]?.likes !== undefined && (
-                      <div className={`flex items-center gap-1 rounded-full border px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono font-bold shadow-md backdrop-blur-md transition-all ${
-                        cards[i]?.isLiked 
-                          ? 'border-[#A92C1F] bg-[#A92C1F] text-white' 
-                          : 'border-white/30 bg-[#2F2E2F]/80 text-white'
-                      }`}>
-                        <Heart className={`h-3 w-3 ${cards[i]?.isLiked ? 'fill-white' : 'fill-white/30'}`} />
-                        <span>{cards[i]?.likes}</span>
-                      </div>
-                    )}
+                    {/* Bottom Info Overlay */}
+                    <motion.div
+                      className="text-left flex flex-col justify-end gap-1 sm:gap-1.5 pointer-events-auto"
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ 
+                        opacity: isFront ? 1 : 0.8,
+                        y: 0
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <h3 className="text-white font-sans text-base sm:text-2xl font-extrabold tracking-tight leading-snug sm:leading-tight drop-shadow-md">
+                        {title}
+                      </h3>
+                      <p className="text-white/90 text-xs sm:text-sm font-medium leading-snug sm:leading-relaxed line-clamp-2 sm:line-clamp-3">
+                        {description}
+                      </p>
+
+                      {/* Tag Pills */}
+                      {tags && (
+                        <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-1 sm:mt-2">
+                          {tags.slice(0, 5).map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-md bg-white/20 border border-white/30 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-mono text-white font-medium backdrop-blur-xs"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          {tags.length > 5 && (
+                            <span className="rounded-md bg-white/10 border border-white/20 px-1.5 py-0.5 text-[9px] font-mono text-white/80">
+                              +{tags.length - 5}
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </motion.div>
                   </div>
-
-                  {/* Card Info Overlay */}
-                  <motion.div
-                    className={`absolute bottom-0 left-0 right-0 p-3.5 sm:p-6 pt-10 sm:pt-14 ${currentTheme.cardInfoBg} text-left flex flex-col justify-end z-20`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ 
-                      opacity: isFront ? 1 : 0.8,
-                      y: 0
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <h3 className="text-white font-header text-base sm:text-2xl font-black tracking-tight leading-tight sm:leading-tight">
-                      {title}
-                    </h3>
-                    <p className="text-white/90 text-xs sm:text-sm font-medium mt-1 leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
-                      {description}
-                    </p>
-
-                    {/* Tag Pills */}
-                    {tags && (
-                      <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-2 sm:mt-3">
-                        {tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-md bg-white/15 border border-white/25 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-mono text-white font-medium backdrop-blur-xs"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </motion.div>
                 </motion.li>
               );
             })}
