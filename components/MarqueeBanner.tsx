@@ -27,11 +27,10 @@ export const MarqueeBanner: React.FC<MarqueeBannerProps> = ({
 
   return (
     <div
-      className={`relative z-20 w-full overflow-hidden py-4 border-y ${
-        isCrimson
+      className={`relative z-20 w-full overflow-hidden py-4 border-y ${isCrimson
           ? 'bg-[#A92C1F] text-[#F2EFE7] border-[#8A2318] shadow-md'
           : 'bg-[#E8E3DA] text-[#2F2E2F] border-[#A92C1F]/20'
-      }`}
+        }`}
     >
       {/* Infinite Scrolling Track */}
       <div className="flex w-max select-none">
@@ -53,9 +52,8 @@ export const MarqueeBanner: React.FC<MarqueeBannerProps> = ({
                 &ldquo;{text}&rdquo;
               </span>
               <span
-                className={`h-2.5 w-2.5 rounded-full shrink-0 ${
-                  isCrimson ? 'bg-[#F2EFE7]/80' : 'bg-[#A92C1F]'
-                }`}
+                className={`h-2.5 w-2.5 rounded-full shrink-0 ${isCrimson ? 'bg-[#F2EFE7]/80' : 'bg-[#A92C1F]'
+                  }`}
               />
             </div>
           ))}
