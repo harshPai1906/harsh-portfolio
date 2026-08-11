@@ -35,13 +35,13 @@ export default function CardStack({ customCards, onSelectCard }: CardStackProps)
       tags: ['Pandas', 'Seaborn', 'SQL', 'XGBoost', 'Python']
     },
     {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-      alt: "Temperature Monitoring System",
-      title: "Temperature Monitoring System",
-      description: "Precision 8051 assembly system with LM35 sensor & ADC0804 converter.",
-      category: "Embedded Systems & 8051",
-      tags: ['8051 Assembly', 'Keil µVision', 'LM35', 'LCD']
+      id: 'travelai-planner',
+      src: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80",
+      alt: "TravelAI – AI Travel Planning System",
+      title: "TravelAI – AI Travel Planner",
+      description: "AI-powered travel planner generating 1-12 day itineraries using 4 agents in LangGraph & PostgreSQL.",
+      category: "AI Agents & Full Stack",
+      tags: ['React', 'Python', 'LangGraph', 'PostgreSQL']
     },
     {
       id: 3,
