@@ -111,7 +111,7 @@ export default function OverlayContent() {
         "Engineered using Python, LangGraph, and PostgreSQL",
         "Reduced manual trip planning time by 70%",
       ],
-      liveUrl: "#",
+      liveUrl: "https://travelai-five.vercel.app/",
       githubUrl: "#",
     },
     {

@@ -45,7 +45,7 @@ const PROJECTS: Project[] = [
     description: 'Built an AI travel planner generating personalized 1–12 day itineraries with a 4-agent architecture using Python, LangGraph, and PostgreSQL.',
     image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80',
     tags: ['React', 'Python', 'LangGraph', 'PostgreSQL', 'AI Agents'],
-    demoUrl: '#',
+    demoUrl: 'https://travelai-five.vercel.app/',
     githubUrl: '#',
     fullDetails: 'Built an AI travel planner generating personalized itineraries for 1–12 days across any destination. Developed a 4-agent architecture for Flights, Hotels, Places, and Itinerary recommendations. Engineered the system using Python, LangGraph, and PostgreSQL, reducing manual planning time by 70%.',
     features: [
