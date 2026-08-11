@@ -98,7 +98,7 @@ export const Navbar: React.FC = () => {
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://drive.google.com/file/d/1wtrnaPd-ryfYpmgL5JLorGUFbd_r7HMs/view?usp=sharing"
+              href="https://drive.google.com/file/d/1MQ_lLNE_aTd9JtnZJa5tF9NiHHMLoC_6/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-1.5 rounded-full bg-[#A92C1F] px-5 py-2 text-xs font-bold text-white transition-all hover:bg-[#8A2318] hover:shadow-md active:scale-95"
@@ -142,7 +142,7 @@ export const Navbar: React.FC = () => {
                 </a>
               ))}
               <a
-                href="https://drive.google.com/file/d/1wtrnaPd-ryfYpmgL5JLorGUFbd_r7HMs/view?usp=sharing"
+                href="https://drive.google.com/file/d/1MQ_lLNE_aTd9JtnZJa5tF9NiHHMLoC_6/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
